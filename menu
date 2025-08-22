@@ -1,0 +1,170 @@
+<!DOCTYPE html> <html lang="ru" data-theme="dark"> <head> <meta charset="utf-8" /> <meta name="viewport" content="width=device-width, initial-scale=1" /> <title>Недельный план - Высокий белок - Подробные рецепты - Тёмная тема</title> <style> :root{ --bg:#0b0f14; --ink:#e5e7eb; --muted:#9aa3af; --accent:#60a5fa; --soft:#121822; --line:#1f2937; --success:#34d399; --warn:#f59e0b; --danger:#ef4444; --table-head:#0f1622; --chip:#152032; } [data-theme="light"]{ --bg:#ffffff;--ink:#1a1a1a;--muted:#6b7280;--accent:#2563eb;--soft:#f3f4f6;--line:#e5e7eb;--success:#10b981;--warn:#b45309;--danger:#b91c1c;--table-head:#fafafa;--chip:#eef2ff; } *{box-sizing:border-box} html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Noto Sans','Helvetica Neue',Arial,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';} body{padding:24px;line-height:1.5} header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:16px} .title{max-width:70%} h1{font-size:22px;margin:0 0 6px 0} .subtitle{color:var(--muted);font-size:13px;margin-bottom:4px} .badge{display:inline-block;background:var(--chip);border:1px solid var(--line);border-radius:6px;padding:2px 8px;font-size:12px;margin-right:6px;white-space:nowrap} hr{border:none;border-top:1px solid var(--line);margin:16px 0} section{margin:16px 0} h2{font-size:18px;margin:0 0 10px 0} h3{font-size:16px;margin:14px 0 8px 0} h4{font-size:14px;margin:12px 0 6px 0} p{margin:8px 0} .note{font-size:12px;color:var(--muted)} .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px} .card{border:1px solid var(--line);border-radius:8px;padding:12px;background:var(--soft)} .soft{background:rgba(255,255,255,0.02)} .tbl{width:100%;border-collapse:collapse;font-size:13px} .tbl th,.tbl td{border:1px solid var(--line);padding:8px;vertical-align:top} .tbl th{background:var(--table-head);text-align:left} .right{text-align:right} .checkbox{width:16px;height:16px;border:1px solid var(--line);display:inline-block;border-radius:3px;margin-right:8px;vertical-align:-2px;cursor:pointer;background:transparent} .checkbox.checked{background:linear-gradient(135deg,var(--accent),#22d3ee);border-color:transparent;box-shadow:0 0 0 1px rgba(255,255,255,0.08) inset} .total{font-weight:600} .kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;background:#0a0f18;border:1px solid var(--line);padding:2px 6px;border-radius:6px;font-size:12px;color:var(--muted)} .print-hint{font-size:12px;color:var(--muted)} .spaced li{margin:4px 0} ul{padding-left:18px;margin:8px 0} .btns{display:flex;gap:8px;flex-wrap:wrap} button{background:var(--chip);border:1px solid var(--line);color:var(--ink);padding:6px 10px;border-radius:6px;cursor:pointer} button:hover{filter:brightness(1.1)} input.price{width:100%;background:#0a0f18;color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:6px 8px} .sum-cell{min-width:72px} textarea{width:100%;min-height:120px;background:#0a0f18;color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:8px} details > summary{cursor:pointer} details .meta{font-size:12px;color:var(--muted);margin:-4px 0 6px 0} .tips{font-size:12px;color:var(--muted)} .warn{color:var(--warn)} .ok{color:var(--success)} .bad{color:var(--danger)} @media (max-width: 900px){.grid-2{grid-template-columns:1fr}} @page{size:A4;margin:12mm} @media print { body{padding:0} header{margin:0 0 8px 0} .print-hint,.btns{display:none !important} a{color:black;text-decoration:none} footer{position:fixed;bottom:6mm;left:0;right:0;text-align:center;color:#6b7280} .page-number:after{content:counter(page) " / " counter(pages)} } .step{margin:6px 0} .step b{display:inline-block;min-width:22px} .block{margin:10px 0 12px 0} .sub{margin-left:12px} </style> </head> <body> <header> <div class="title"> <h1>Недельный план с высоким белком</h1> <div class="subtitle">Меню: 7 дней × завтрак (без омлетов/блинчиков; каши с ягодами/фруктами/орехами, яйца допускаются) + 2 горячих (всегда мясо/рыба) + салат - Для двоих</div> <div> <span class="badge">Говядина — приоритет</span> <span class="badge">Также: кур. бедро, индейка, свинина, кур. грудка иногда</span> <span class="badge">Рыба: несколько техник (пан-соус, эскабече, путтанеска)</span> <span class="badge">Тёмная/светлая темы - Автосумма - Локальное сохранение</span> </div> </div> <div> <div class="print-hint"> Сохранить в PDF:<br /> <span class="kbd">Печать</span> → <span class="kbd">Сохранить как PDF</span> → Поля «узкие», включить фоновые элементы. </div> <div class="btns" style="margin-top:8px"> <button type="button" id="toggleTheme">Переключить тему</button> <button type="button" id="expandAll">Развернуть рецепты</button> <button type="button" id="collapseAll">Свернуть рецепты</button> <button type="button" id="clearAll">Сбросить все (очистить локальные данные)</button> </div> </div> </header> <hr /> <section id="menu"> <h2>Часть 1. Меню и максимально подробные рецепты</h2> <div class="note">Порции на двоих. «Сильный огонь» = 8–9/10; «средний» = 5–6/10; «низкий» = 2–3/10. Духовка без конвекции, если не указано иное.</div> <!-- День 1 --> <details class="card" open> <summary><strong>День 1 (Пн)</strong></summary> <div class="meta">Завтрак: каша; Обед: говядина; Ужин: рыба (пан-соус)</div>
+text
+<h3>Завтрак — Гречка с черникой, мёдом и грецкими орехами</h3>
+<div class="block">
+  <div class="step"><b>1.</b> Промыть гречку 160 г в холодной воде до прозрачности. Соотношение вода: 1:2 (320 мл), щепотка соли.</div>
+  <div class="step"><b>2.</b> Довести до кипения (сильный), убавить до низкого, накрыть. Варить 15–18 мин до впитывания. Не мешать.</div>
+  <div class="step"><b>3.</b> Выключить, укутать полотенцем, настоять 5 мин. Вмешать 1 ч. л. масла/по желанию.</div>
+  <div class="step"><b>4.</b> Подача: черника/смешанные ягоды 150 г, мёд 1 ст. л., грецкие орехи 30 г.</div>
+  <div class="tips">Ошибка: кипит бурно — получится сухо и ломко. Спасение: добавить 1–2 ст. л. горячей воды, накрыть на 2–3 мин.</div>
+</div>
+
+<h3>Горячее 1 — Биф‑болоньезе на сковороде с пенне</h3>
+<div class="block">
+  <div class="step"><b>1.</b> Разогреть глубокую сковороду (средне‑сильный). Обжарить говяжий фарш 450 г 6–8 мин до румяности, разбивая комочки. Посолить щепоткой.</div>
+  <div class="step"><b>2.</b> Вынуть фарш. В ту же сковороду 1 ст. л. масла, лук 1 мелко — 4–5 мин до мягкости; морковь 1 мелко — 3 мин; чеснок 3 зуб — 30 с, не поджигать.</div>
+  <div class="step"><b>3.</b> Вернуть фарш, добавить томатную пасту 1 ст. л., жарить 1 мин; влить томаты в с/с 1 банку, 100 мл молока (опц.), 1 ч. л. итал. трав, перец. Огонь средний, томить 15–20 мин до густоты, прикипаний по краям.</div>
+  <div class="step"><b>4.</b> Отварить пенне 220–250 г до al dente (минус 1 мин от инструкции). Сохранить 1/2 стакана воды от пасты.</div>
+  <div class="step"><b>5.</b> Соединить пасту с соусом, подлить 2–4 ст. л. воды для эмульсии. Дать постоять 2 мин. Подать с тёртым сыром.</div>
+  <div class="tips">Контроль: соус должен «покрывать» пасту, не быть жидкой суповой консистенции.</div>
+</div>
+
+<h3>Салат — Айсберг, огурец, укроп, йогуртовая заправка</h3>
+<div class="block">
+  <div class="step"><b>1.</b> Соус: йогурт 4 ст. л., лимон 1 ч. л., горчица 1/2 ч. л., соль/перец. Айсберг крупно, огурец полукольцами. Перемешать, охладить 10 мин.</div>
+</div>
+
+<h3>Горячее 2 — Треска в лимонно‑каперсовом масле (пан‑соус) + картофель</h3>
+<div class="block">
+  <div class="step"><b>1.</b> Филе трески/минтая 2×180–200 г обсушить, посолить/поперчить. Разогреть сковороду с 1,5 ст. л. масла до мерцания.</div>
+  <div class="step"><b>2.</b> Жарить 2,5–3 мин/сторона (толщина ~2 см). Переложить на тарелку.</div>
+  <div class="step"><b>3.</b> В сковороду: чеснок 1 зуб 30 с, каперсы 1 ст. л., сок 1/2 лимона, 1–2 ст. л. воды. Снять соус со дна, уварить 1–2 мин. Вернуть рыбу на 30–60 с.</div>
+  <div class="step"><b>4.</b> Посыпать петрушкой. Подача с отварным/запечённым картофелем.</div>
+  <div class="tips">Ошибка: рыба прилипает. Спасение: не шевелить первые 90 с; переворачивать, когда легко отходит.</div>
+</div>
+</details> <!-- День 2 --> <details class="card"> <summary><strong>День 2 (Вт)</strong></summary> <div class="meta">Завтрак: овсянка; Обед: индейка (пиката); Ужин: говядина чили</div>
+text
+<h3>Завтрак — Овсянка с бананом, фундуком и кленовым сиропом</h3>
+<div class="block">
+  <div class="step"><b>1.</b> Овсянка 120 г + молоко/вода 330 мл + щепотка соли. Варить 7–10 мин до кремовости, помешивая.</div>
+  <div class="step"><b>2.</b> Подача: банан, фундук 30 г, кленовый сироп/мёд 1–2 ч. л.</div>
+</div>
+
+<h3>Горячее 1 — Индейка пиката (каперы‑лимон) + кускус</h3>
+<div class="block">
+  <div class="step"><b>1.</b> Филе индейки 400 г расплющить до 1,5 см, посолить/перчить, обвалять в муке (с тонким слоем).</div>
+  <div class="step"><b>2.</b> Обжарить на 1 ст. л. масла 2–3 мин/сторона до лёгкой румяности. Вынуть.</div>
+  <div class="step"><b>3.</b> Влить бульон/воду 200 мл, сок 1/2 лимона, каперсы 1 ст. л., уварить 2–3 мин. Вернуть индейку на 1–2 мин. Петрушка.</div>
+  <div class="step"><b>4.</b> Кускус 160 г залить кипятком 1:1,2 с солью, накрыть на 5 мин, распушить вилкой.</div>
+  <div class="tips">Секрет: антипригарная сковорода и не перегружать — жарим партиями.</div>
+</div>
+
+<h3>Салат — Томаты, красный лук, базилик, бальзамик</h3>
+
+<h3>Горячее 2 — Чили кон карне (говядина+фасоль) + рис</h3>
+<div class="block">
+  <div class="step"><b>1.</b> Фарш говяжий 500 г обжарить до румяности 7–8 мин (средне‑сильный). Лук 1 — 4 мин, чеснок 3 — 30 с.</div>
+  <div class="step"><b>2.</b> Специи: паприка 1 ч. л., зира 1 ч. л., чили — 30 с. Влить томаты 1 банка, фасоль 1 банка (слить/промыть). Томить 20 мин.</div>
+  <div class="step"><b>3.</b> Рис: промыть, 1:2, варить 12–15 мин, настоять 5 мин.</div>
+</div>
+</details> <!-- День 3 --> <details class="card"> <summary><strong>День 3 (Ср)</strong></summary> <div class="meta">Завтрак: йогурт+творог; Обед: кур. бедро терияки; Ужин: лосось пан‑соус</div>
+text
+<h3>Завтрак — Йогуртовый боул с творогом, клубникой и миндалём</h3>
+
+<h3>Горячее 1 — Куриные бёдра терияки + брокколи + рис</h3>
+<div class="block">
+  <div class="step"><b>1.</b> Соус: соевый 3 ст. л., мёд 1 ст. л., рисовый уксус 1 ст. л., крахмал 1 ч. л., чеснок 1 — смешать.</div>
+  <div class="step"><b>2.</b> Бёдра без костей 450 г кубиками — обжарить 6–7 мин (средне‑сильный) до готовности. Влить соус, уварить 2–3 мин до глянца.</div>
+  <div class="step"><b>3.</b> Брокколи бланш 2–3 мин или быстро обжарить. Подача с рисом.</div>
+</div>
+
+<h3>Салат — Коулсло (капуста+морковь) с йогуртовой заправкой</h3>
+
+<h3>Горячее 2 — Лосось со сливочно‑горчичным соусом + перловка</h3>
+<div class="block">
+  <div class="step"><b>1.</b> Лосось 2×180–200 г: кожей вниз 4–5 мин, перевернуть 2 мин; снять.</div>
+  <div class="step"><b>2.</b> В сковороду: сливки 100 мл, дижон 1 ч. л., лимон 1 ч. л., соль/перец; уварить до лёгкого загустения 1–2 мин. Вернуть рыбу на 30–60 с. Укроп.</div>
+  <div class="step"><b>3.</b> Перловка (или булгур): промыть, варить 1:2,5 до мягкости (перловка 25–30 мин; булгур 12–15 мин).</div>
+</div>
+</details> <!-- День 4 --> <details class="card"> <summary><strong>День 4 (Чт)</strong></summary> <div class="meta">Завтрак: рисовая каша; Обед: говядина стир‑фрай; Ужин: свинина цитрус‑чили</div>
+text
+<h3>Завтрак — Рисовая каша с изюмом, курагой и фисташками</h3>
+<div class="block">
+  <div class="step"><b>1.</b> Рис круглозёрный: молоко 1:4, щепотка соли. Варить на низком 25–30 мин, помешивая; вода/молоко по необходимости.</div>
+  <div class="step"><b>2.</b> Добавить изюм, курагу кубиками; подать с фисташками.</div>
+</div>
+
+<h3>Горячее 1 — Говяжий стир‑фрай с перцем и луком + удон</h3>
+<div class="block">
+  <div class="step"><b>1.</b> Говядина 350–400 г тонкими ломтиками поперёк волокон. Маринад: соевый 2 ст. л., крахмал 1 ч. л., 1 ч. л. масла, 10 мин.</div>
+  <div class="step"><b>2.</b> Сковородка‑вок/широкая: сильный огонь. Обжарить говядину партиями по 90–120 с, снять.</div>
+  <div class="step"><b>3.</b> Овощи (перец 1–2, лук 1) — 3–4 мин на сильном. Соус: соевый 1,5 ст. л., устриничный 1–2 ст. л., немного воды; вернуть говядину, перемешать 30–60 с. Смешать с отваренным удоном.</div>
+  <div class="tips">Ошибка: тушение вместо жарки. Спасение: жарить малыми партиями и на очень горячей поверхности.</div>
+</div>
+
+<h3>Салат — Огурцы с кунжутом и рисовым уксусом</h3>
+
+<h3>Горячее 2 — Свинина в апельсиново‑чили глазури + киноа</h3>
+<div class="block">
+  <div class="step"><b>1.</b> Свинина 450 г соломкой. Обжарить 5–6 мин до румяности (средне‑сильный), посолить.</div>
+  <div class="step"><b>2.</b> Соус: сок апельсина 120 мл, соевый 1,5 ст. л., мёд 1 ст. л., чеснок, чили, крахмал 1 ч. л. Влить, уварить 2–3 мин до глянца. Подать с киноа.</div>
+</div>
+</details> <!-- День 5 --> <details class="card"> <summary><strong>День 5 (Пт)</strong> — обновлено: рыба «путтанеска»</summary> <div class="meta">Завтрак: пшёнка; Обед: курица терияки; Ужин: рыба путтанеска</div>
+text
+<h3>Завтрак — Пшёнка с грушей, мёдом и грецкими орехами</h3>
+<div class="block">
+  <div class="step"><b>1.</b> Пшено промыть до чистой воды, при желании ошпарить кипятком, слить. Варить 1:3–4 (молоко/вода) 20–25 мин на низком огне. Соль щепотка.</div>
+  <div class="step"><b>2.</b> Подача: груша кубиками, мёд, орехи.</div>
+</div>
+
+<h3>Горячее 1 — Курица терияки + рис + брокколи</h3>
+<div class="block"><div class="step">Как в День 3.</div></div>
+
+<h3>Горячее 2 — Рыба в соусе путтанеска (сковорода) + булгур/спагетти</h3>
+<div class="block">
+  <div class="step"><b>1. Подготовка.</b> Белая рыба (треска/хек) 2×180–200 г — обсушить, посолить/перчить. Оливки/маслины 60–80 г крупно порезать; каперсы 1,5 ст. л. промыть; чеснок 2 зуб измельчить; анчоусы 2–3 филе мелко (опц., но очень желательны); чили хлопья — по вкусу.</div>
+  <div class="step"><b>2. Обжарка рыбы.</b> 1 ст. л. масла, средне‑сильный огонь. Жарить рыбу 2,5–3 мин/сторона до полуготовности. Снять на тарелку.</div>
+  <div class="step"><b>3. Соус.</b> В ту же сковороду добавить 0,5 ст. л. масла; чеснок 30 с, анчоусы — размять до растворения; чили щепотку. Влить томаты в с/с 1 банку, всыпать оливки и каперсы. Томить 5–6 мин до загустения: след от лопатки должен держаться 1–2 секунды.</div>
+  <div class="step"><b>4. Доваривание.</b> Вернуть рыбу в соус, тушить ещё 2–4 мин до готовности (внутр. t ~ 50–52°C для сочной текстуры). Балансировать соль/кислоту 1 ч. л. лимонного сока.</div>
+  <div class="step"><b>5. Гарнир.</b> Булгур 1:2 — 10–12 мин; либо спагетти al dente. Немного воды от пасты (2–3 ст. л.) поможет связать соус.</div>
+  <div class="tips">Ошибки: пересол (учитывайте солёность каперсов/анчоусов/оливок) — спасение: 1–2 ст. л. воды/томатов, щепотка сахара. Слишком кислый — добавить 1 ч. л. масла/щёпотку сахара.</div>
+</div>
+</details> <!-- День 6 --> <details class="card"> <summary><strong>День 6 (Сб)</strong></summary> <div class="meta">Завтрак: манка; Обед: чечевица+говядина; Ужин: шницель</div>
+text
+<h3>Завтрак — Манка на молоке с фисташками и абрикосовым вареньем</h3>
+<div class="block">
+  <div class="step"><b>1.</b> Молоко 500 мл довести почти до кипения; тонкой струйкой всыпать манку 50–60 г, постоянно мешая венчиком.</div>
+  <div class="step"><b>2.</b> Огонь низкий, 5–7 мин до нужной густоты. Соль щеп., сахар по вкусу. Подача с вареньем и фисташками.</div>
+  <div class="tips">Комки — всегда всыпать тонко и мешать. Если загустела — добавить немного горячего молока.</div>
+</div>
+
+<h3>Горячее 1 — Чечевица пряная с говядиной (рагу) + йогурт</h3>
+<div class="block">
+  <div class="step"><b>1.</b> Говядина 400 г кубиками — обсушить; обжарить партиями 6–8 мин до румяности. Соль — щепотка в конце обжарки.</div>
+  <div class="step"><b>2.</b> Лук 1 + морковь 1 — 5 мин; специи: кумин 1 ч. л., кориандр 1 ч. л., паприка 1 ч. л. — 1 мин.</div>
+  <div class="step"><b>3.</b> Зелёная/коричневая чечевица 200 г (промыть), томаты 1 банка, бульон/вода 400–500 мл. Томить 35–45 мин до мягкости чечевицы и мяса. Соль/перец.</div>
+  <div class="step"><b>4.</b> Подача: йогурт 1–2 ст. л., зелень. Консистенция — густая, не суп.</div>
+</div>
+
+<h3>Салат — Свёкла с чесноком, йогуртом и орехами</h3>
+
+<h3>Горячее 2 — Индейка/куриная грудка шницель + лимон + пюре/рис</h3>
+<div class="block">
+  <div class="step"><b>1.</b> Филе 400 г отбить до 1 см, посолить/перчить. Панировка: мука → яйцо → сухари. Дать постоять 5 мин.</div>
+  <div class="step"><b>2.</b> Жарить в 0,5 см масла 2,5–3,5 мин/сторона до золотистости. Слить на решётку. Подать с долькой лимона.</div>
+  <div class="tips">Ошибка: масло слишком холодное — получится жирно. Жарить на среднем, масло должно слегка мерцать.</div>
+</div>
+</details> <!-- День 7 --> <details class="card"> <summary><strong>День 7 (Вс)</strong></summary> <div class="meta">Завтрак: каша яблоко‑корица‑пекан; Обед: свинина «аль пастор»; Ужин: говядина тушёная</div>
+text
+<h3>Завтрак — Каша «яблоко‑корица‑пекан» (овсяная/рисовая)</h3>
+<div class="block">
+  <div class="step"><b>1.</b> Овсянка/рисовая каша (как на Днях 2/4). Добавить яблоко кубиками, щепотку корицы.</div>
+  <div class="step"><b>2.</b> Пекан 30 г, мёд — по вкусу.</div>
+</div>
+
+<h3>Горячее 1 — Свинина «аль пастор» с ананасом + рис/тортийи</h3>
+<div class="block">
+  <div class="step"><b>1.</b> Свинина 450 г соломкой — обжарить до румяности партиями. Вынуть.</div>
+  <div class="step"><b>2.</b> Лук 1 + чеснок 2 — 3 мин; специи: паприка, зира, чили — 30 с; томатная паста 1 ст. л. — 1 мин; уксус 1 ст. л., немного сока ананаса/воды.</div>
+  <div class="step"><b>3.</b> Вернуть свинину + ананас 200 г кубиками, выпарить до глянца 3–4 мин. Баланс соли/кислоты по вкусу.</div>
+</div>
+
+<h3>Салат — Капуста/кольраби/редис, лайм, кинза</h3>
+
+<h3>Горячее 2 — Говядина тушёная с перцем и томатами + полента</h3>
+<div class="block">
+  <div class="step"><b>1.</b> Говядина 500 г кубиками — обжарить партиями 6–8 мин. Лук 1 + перец 1–2 — 5 мин.</div>
+  <div class="step"><b>2.</b> Паприка 1 ч. л., лавр, томаты 1 банка, вино/бульон 100 мл (опц.). Тушить 60–75 мин на тихом до мягкости.</div>
+  <div class="step"><b>3.</b> Полента: крупа кукурузная 1:4 (соль), варить 25–30 мин, помешивая; кусочек масла в конце.</div>
+</div>
+</details> <div class="card soft"> <h4>Мини‑гид по чечевице</h4> <ul class="spaced"> <li>Красная: 1:2,5–3; 12–15 мин; разваривается — для супов/пюре.</li> <li>Зелёная/коричневая: 1:3; 25–30 мин — держит форму, хороша в салатах/рагу.</li> <li>Специи: зира, кориандр, паприка; для мексиканского профиля — чили анчо/чипотле + лайм.</li> </ul> </div> </section> <section id="shopping"> <h2>Часть 2. Список закупок (по категориям)</h2> <div class="grid-2"> <div class="card"> <h3>Мясо/рыба</h3> <ul class="spaced"> <li><span class="checkbox"></span>Говядина: фарш ~1,5 кг; тушение 1,0–1,2 кг; ломтики 0,4 кг</li> <li><span class="checkbox"></span>Куриные бёдра/индейка 1,2–1,4 кг</li> <li><span class="checkbox"></span>Куриная грудка 0,4 кг</li> <li><span class="checkbox"></span>Свинина 0,8–0,9 кг</li> <li><span class="checkbox"></span>Рыба белая 2 филе; лосось 2 филе</li> <li><span class="checkbox"></span>Оливки/маслины, каперсы, анчоусы (для путтанески)</li> </ul> </div> <div class="card"> <h3>Молочное/яйца</h3> <ul class="spaced"> <li><span class="checkbox"></span>Яйца 20–30 шт</li> <li><span class="checkbox"></span>Йогурт 0,7–1 кг; творог 0,8 кг</li> <li><span class="checkbox"></span>Сыр твёрдый 0,35–0,4 кг; молоко 1–2 л</li> </ul> </div> <div class="card"> <h3>Овощи/фрукты/зелень</h3> <ul class="spaced"> <li><span class="checkbox"></span>Лук, морковь, перцы, айсберг/капуста, огурцы, томаты, брокколи, свёкла</li> <li><span class="checkbox"></span>Лимоны/лаймы, зелень (укроп/петрушка/базилик/кинза)</li> <li><span class="checkbox"></span>Ягоды, бананы/яблоки/груши; курага, изюм</li> </ul> </div> <div class="card"> <h3>Бакалея/консервы</h3> <ul class="spaced"> <li><span class="checkbox"></span>Рис, гречка, овсянка, пшено, булгур/перловка, киноа, полента, спагетти</li> <li><span class="checkbox"></span>Томаты в с/с 5–6 банок; фасоль красная 2 банки</li> <li><span class="checkbox"></span>Каперсы, оливки/маслины, томатная паста, анчоусы</li> </ul> </div> <div class="card"> <h3>Специи/масла/прочее</h3> <ul class="spaced"> <li><span class="checkbox"></span>Зира, паприка, кориандр, чили; чеснок/имбирь</li> <li><span class="checkbox"></span>Соевый/устриничный соус, уксусы (рисовый/ябл.), мёд/сироп, крахмал</li> <li><span class="checkbox"></span>Оливковое масло</li> <li><span class="checkbox"></span>Орехи (грецкий/миндаль/фисташки/пекан)</li> </ul> </div> </div> </section> <section id="budget"> <h2>Часть 3. Смета (вводите свои цены)</h2> <div class="note">В правом столбце — поля ввода. Итоги по категориям и общий итог считаются автоматически и сохраняются в браузере.</div> <div class="card"> <h3>Мясо/рыба</h3> <table class="tbl" data-table-key="meat"> <thead><tr><th>✓</th><th>Позиция</th><th>Кол-во</th><th class="right">Ориентир</th><th class="right">Мои цены</th></tr></thead> <tbody> <tr><td></td><td>Говядина (фарш)</td><td>~1,5 кг</td><td class="right">—</td><td class="right"><input class="price" type="number" data-key="meat-1"/></td></tr> <tr><td></td><td>Говядина (тушение)</td><td>1,0–1,2 кг</td><td class="right">—</td><td class="right"><input class="price" type="number" data-key="meat-2"/></td></tr> <tr><td></td><td>Говядина (ломтики)</td><td>0,4 кг</td><td class="right">—</td><td class="right"><input class="price" type="number" data-key="meat-3"/></td></tr> <tr><td></td><td>Куриные бёдра/индейка</td><td>1,2–1,4 кг</td><td class="right">—</td><td class="right"><input class="price" type="number" data-key="meat-4"/></td></tr> <tr><td></td><td>Куриная грудка</td><td>0,4 кг</td><td class="right">—</td><td class="right"><input class="price" type="number" data-key="meat-5"/></td></tr> <tr><td></td><td>Свинина</td><td>0,8–0,9 кг</td><td class="right">—</td><td class="right"><input class="price" type="number" data-key="meat-6"/></td></tr> <tr><td></td><td>Рыба белая</td><td>2 филе</td><td class="right">—</td><td class="right"><input class="price" type="number" data-key="meat-7"/></td></tr> <tr><td></td><td>Лосось</td><td>2 филе</td><td class="right">—</td><td class="right"><input class="price" type="number" data-key="meat-8"/></td></tr> <tr><td colspan="3" class="total">Итог по категории</td><td class="right total">—</td><td class="right total" data-sum="meat">0</td></tr> </tbody> </table> </div> <div class="card"> <h3>Молочное/яйца</h3> <table class="tbl" data-table-key="dairy"> <thead><tr><th>✓</th><th>Позиция</th><th>Кол-во</th><th class="right">Ориентир</th><th class="right">Мои цены</th></tr></thead> <tbody> <tr><td></td><td>Яйца</td><td>20–30 шт</td><td class="right">—</td><td class="right"><input class="price" type="number" data-key="dairy-1"/></td></tr> <tr><td></td><td>Йогурт/творог</td><td>1,5–1,8 кг</td><td class="right">—</td><td class="right"><input class="price" type="number" data-key="dairy-2"/></td></tr> <tr><td></td><td>Сыр твёрдый</td><td>0,35–0,4 кг</td><td class="right">—</td><td class="right"><input class="price" type="number" data-key="dairy-3"/></td></tr> <tr><td></td><td>Молоко</td><td>1–2 л</td><td class="right">—</td><td class="right"><input class="price" type="number" data-key="dairy-4"/></td></tr> <tr><td colspan="3" class="total">Итог по категории</td><td class="right total">—</td><td class="right total" data-sum="dairy">0</td></tr> </tbody> </table> </div> <div class="card"> <h3>Овощи/фрукты/зелень</h3> <table class="tbl" data-table-key="veg"> <thead><tr><th>✓</th><th>Позиция</th><th>Кол-во</th><th class="right">Ориентир</th><th class="right">Мои цены</th></tr></thead> <tbody> <tr><td></td><td>Набор овощей</td><td>на неделю</td><td class="right">—</td><td class="right"><input class="price" type="number" data-key="veg-1"/></td></tr> <tr><td></td><td>Цитрусы, зелень</td><td>—</td><td class="right">—</td><td class="right"><input class="price" type="number" data-key="veg-2"/></td></tr> <tr><td></td><td>Фрукты/ягоды/сухофрукты</td><td>—</td><td class="right">—</td><td class="right"><input class="price" type="number" data-key="veg-3"/></td></tr> <tr><td colspan="3" class="total">Итог по категории</td><td class="right total">—</td><td class="right total" data-sum="veg">0</td></tr> </tbody> </table> </div> <div class="card"> <h3>Бакалея/консервы</h3> <table class="tbl" data-table-key="groceries"> <thead><tr><th>✓</th><th>Позиция</th><th>Кол-во</th><th class="right">Ориентир</th><th class="right">Мои цены</th></tr></thead> <tbody> <tr><td></td><td>Крупы/паста</td><td>на неделю</td><td class="right">—</td><td class="right"><input class="price" type="number" data-key="gro-1"/></td></tr> <tr><td></td><td>Томаты в с/с, фасоль</td><td>5–6 / 2 банки</td><td class="right">—</td><td class="right"><input class="price" type="number" data-key="gro-2"/></td></tr> <tr><td></td><td>Каперсы/оливки/анчоусы/паста томатная</td><td>—</td><td class="right">—</td><td class="right"><input class="price" type="number" data-key="gro-3"/></td></tr> <tr><td colspan="3" class="total">Итог по категории</td><td class="right total">—</td><td class="right total" data-sum="groceries">0</td></tr> </tbody> </table> </div> <div class="card"> <h3>Специи/масла/прочее</h3> <table class="tbl" data-table-key="spices"> <thead><tr><th>✓</th><th>Позиция</th><th>Кол-во</th><th class="right">Ориентир</th><th class="right">Мои цены</th></tr></thead> <tbody> <tr><td></td><td>Пряности, чеснок/имбирь</td><td>—</td><td class="right">—</td><td class="right"><input class="price" type="number" data-key="sp-1"/></td></tr> <tr><td></td><td>Соусы, уксусы, мёд/сироп, крахмал</td><td>—</td><td class="right">—</td><td class="right"><input class="price" type="number" data-key="sp-2"/></td></tr> <tr><td></td><td>Оливковое масло, орехи</td><td>—</td><td class="right">—</td><td class="right"><input class="price" type="number" data-key="sp-3"/></td></tr> <tr><td colspan="3" class="total">Итог по категории</td><td class="right total">—</td><td class="right total" data-sum="spices">0</td></tr> </tbody> </table> </div> <div class="card soft"> <strong>Сводный бюджет (по моим ценам): <span id="grandTotal">0</span> ₽</strong> <p class="note">Сохраняется локально в этом браузере.</p> </div> </section> <section id="notes"> <h2>Примечания, хранение и безопасность</h2> <div class="card"> <h4>Хранение</h4> <ul class="spaced"> <li>Готовые блюда: 2–3 дня в холодильнике (0–4°C) в герметичных контейнерах.</li> <li>Рис/крупы: быстро охлаждать, хранить до 2 суток, разогревать до горячего пара.</li> <li>Рыба: лучше съесть в день приготовления; максимум 24 часа.</li> </ul> <h4>Безопасность</h4> <ul class="spaced"> <li>Курица: внутренняя температура 74–75°C; говядина тушёная — до мягкости волокон.</li> <li>Не смешивать разделочные доски для сырого мяса и готовых продуктов.</li> </ul> <textarea id="notesArea" placeholder="Ваши заметки, корректировки, тайминги…"></textarea> </div> </section> <footer class="note" style="margin-top:16px;text-align:center"> <span class="page-number"></span> </footer> <script> (function(){ const LS_KEY = 'week_menu_protein_dark_full_v1'; const data = JSON.parse(localStorage.getItem(LS_KEY) || '{}'); function save(){ localStorage.setItem(LS_KEY, JSON.stringify(data)); } // Theme toggle function applyTheme(t){ document.documentElement.setAttribute('data-theme', t); data.theme = t; save(); } document.getElementById('toggleTheme')?.addEventListener('click', ()=>{ const cur = document.documentElement.getAttribute('data-theme') || 'dark'; applyTheme(cur === 'dark' ? 'light' : 'dark'); }); if(data.theme){ applyTheme(data.theme); } // Expand/collapse document.getElementById('expandAll')?.addEventListener('click', ()=>document.querySelectorAll('details.card').forEach(d=>d.open=true)); document.getElementById('collapseAll')?.addEventListener('click', ()=>document.querySelectorAll('details.card').forEach(d=>d.open=false)); // Shopping checkboxes document.querySelectorAll('#shopping .checkbox').forEach((el, idx)=>{ const key = 'cb-' + idx; if(data[key]) el.classList.add('checked'); el.addEventListener('click', ()=>{ el.classList.toggle('checked'); data[key] = el.classList.contains('checked'); save(); }); }); // Prices + sums function parseVal(v){ const n = parseFloat(v); return Number.isFinite(n) ? n : 0; } function sumTable(table){ const sumEl = table.querySelector('[data-sum]'); const inputs = table.querySelectorAll('input.price'); let s = 0; inputs.forEach(inp=>s += parseVal(inp.value)); if(sumEl) sumEl.textContent = s.toLocaleString('ru-RU'); return s; } function sumAll(){ let total = 0; document.querySelectorAll('table.tbl').forEach(tbl=>{ total += sumTable(tbl); }); document.getElementById('grandTotal').textContent = total.toLocaleString('ru-RU'); } document.querySelectorAll('input.price').forEach(inp=>{ const k = inp.dataset.key; if(k && data[k] != null){ inp.value = data[k]; } inp.addEventListener('input', ()=>{ data[inp.dataset.key] = inp.value; save(); sumAll(); }); }); // Notes const notes = document.getElementById('notesArea'); if(notes && data.notes){ notes.value = data.notes; } notes?.addEventListener('input', ()=>{ data.notes = notes.value; save(); }); // Clear all document.getElementById('clearAll')?.addEventListener('click', ()=>{ if(confirm('Сбросить все данные и очистить локальное сохранение?')){ localStorage.removeItem(LS_KEY); location.reload(); } }); sumAll(); })(); </script> </body> </html>
